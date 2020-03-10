@@ -116,12 +116,26 @@
     list-style: none;
     margin-top: 3.5rem;
 
+    @media only screen and (max-width: $bp-medium) {
+        display: flex;
+        margin: 0;
+    }
+
     &__item {
         position: relative;
 
         &:not(:last-child) { // add margin to bottom of all elements except the last
             margin-bottom: 0.5rem;
+
+            @media only screen and (max-width: $bp-medium) { // remove bottom margin when items are placed horizontally across top of screen
+                margin: 0;
+            }
         }
+
+        @media only screen and (max-width: $bp-medium) {
+            flex: 1; // let each navigation element fill 1/4 of the full width
+        }
+
     }
 
     &__item::before { // for animation effect on navigation
@@ -160,6 +174,11 @@
 
         display: flex;
         align-items: center; // align icon and text vertically
+
+        @media only screen and (max-width: $bp-medium) {
+            justify-content: center;
+            padding: 1.5rem;
+        }
     }
 
     &__icon {
@@ -175,6 +194,10 @@
     color: var(--color-grey-light-4);
     text-align: center;
     padding: 2.5rem;
+
+    @media only screen and (max-width: $bp-medium) {
+        display: none;
+    }
 }
 
 .gallery {
@@ -346,7 +369,7 @@
     }
 
     &__friends {
-
+        display: flex; // so friend images don't split onto new line
     }
 
     &__photo {
@@ -357,7 +380,7 @@
         border: 3px solid #fff;
 
         &:not(:last-child) {
-            margin-right: -1.5rem; // overlap images, giving them stacked appearance 
+            margin-right: -2.1rem; // overlap images, giving them stacked appearance 
         }
     }
 }
@@ -369,6 +392,11 @@
     margin-bottom: 3.5rem;
     position: relative;
     overflow: hidden; //to clip overflowing large quotation mark
+
+    @media only screen and (max-width: $bp-medium) {
+        padding: 2rem;
+        margin-bottom: 3rem;
+    }
 
     &__text {
         margin-bottom: 2rem;
@@ -427,10 +455,15 @@
     padding: 3.5rem 0;
     text-align: center;
 
+    @media only screen and (max-width: $bp-medium) {
+        padding: 2.5rem 0;
+    }
+
     &__book-now {
         font-size: 2rem;
         font-weight: 300;
         text-transform: uppercase;
+        margin-bottom: 2.5rem;
     }
 
 }
